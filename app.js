@@ -18,7 +18,8 @@ connectDB();
 // init App
 const app =express();
 
-
+// express middleware handling the form parsing
+app.use(express.urlencoded({extended: false}));
 //initializing multer
 
 // Middilewares
