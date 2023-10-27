@@ -80,7 +80,7 @@ const ProfilePhotoUpload = AsyncHandler(async (req, res, next) => {
     });
   }
   // GET PATH TO IMAGE
-  const imagePath = path.join(__dirname, `../images/${req.file.filename}`);
+  const imagePath = path.join(__dirname, `../public/images/${req.file.filename}`);
   // UPLOAD TO CLOUDNARY
   const result = await CloudUploadImage(imagePath);
   //Get the user from db

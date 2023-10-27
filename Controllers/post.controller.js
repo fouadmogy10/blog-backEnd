@@ -31,7 +31,7 @@ const createPost = AsyncHandler(async (req, res, next) => {
     });
   }
   // upload photo
-  const imagePath = path.join(__dirname, `../images/${req.file.filename}`);
+  const imagePath = path.join(__dirname, `../public/images/${req.file.filename}`);
   // UPLOAD TO CLOUDNARY
   const result = await CloudUploadImage(imagePath);
 
@@ -235,7 +235,7 @@ const updatePostImage = AsyncHandler(async (req, res, next) => {
   // updatePostImage
   await CloudRemoveImage(post.image.publicId);
   // upload new image
-  const imagePath = path.join(__dirname, `../images/${req.file.filename}`);
+  const imagePath = path.join(__dirname, `../public/images/${req.file.filename}`);
   // UPLOAD TO CLOUDNARY
   const result = await CloudUploadImage(imagePath);
 

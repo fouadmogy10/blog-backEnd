@@ -11,8 +11,6 @@ const {
 const uploadPhoto = require("../middelware/photoMiddelware");
 const {
   verifyToken,
-  verifyTokenAndUserandAdmin,
-  verifyTokenAndUser,
 } = require("../middelware/verifyToken");
 
 const router = require("express").Router();

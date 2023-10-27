@@ -3,7 +3,6 @@ const connectDB = require("./config/connectToDb");
 const cors=require("cors");
 const dotenv=require("dotenv").config();
 const colors =require("colors");
-const bodyParser=require("body-parser");
 const { rateLimit } = require('express-rate-limit')
 const { errorHandeler, notFoundHandeler } = require("./middelware/errorHandler");
 const userRouter=require("./routes/auth.routes")
@@ -23,7 +22,6 @@ const app =express();
 //initializing multer
 
 // Middilewares
-app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json());
 app.use(cors());
 
