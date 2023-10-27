@@ -17,6 +17,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
+    "express-fileupload": "^1.4.1",
     "express-rate-limit": "^7.1.1",
     "joi": "^17.9.1",
     "joi-password-complexity": "^5.2.0",

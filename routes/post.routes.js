@@ -32,6 +32,8 @@ router
 router
   .route("/update-image/:id")
   .put(verifyToken, uploadPhoto.single("image"), updatePostImage);
+
+  
 router.route("/likes/:id").put(verifyToken, toggleLikes);
 
 module.exports = router;

@@ -37,12 +37,6 @@ const createPost = AsyncHandler(async (req, res, next) => {
 
   // create new post and save it in db
 
-  /*const post =new Post({
-   *     title:req.body.title,
-   *     description:req.body.description,
-   * })
-   * await post.save();     */
-
   const post = await Post.create({
     title:xss( req.body.title),
     description:xss( req.body.description),
@@ -223,7 +217,6 @@ const updatePostImage = AsyncHandler(async (req, res, next) => {
       message: "no image provided ",
     });
   }
-
   // get the post from db
   const post = await Post.findById(req.params.id);
   if (!post) {
@@ -258,11 +251,9 @@ const updatePostImage = AsyncHandler(async (req, res, next) => {
     },
     { new: true }
   ).populate("user", ["-password"]);
-
   // send response to client
   await fs.unlinkSync(imagePath);
   return res.status(200).json(updatePost);
-
   // remove image from server
 });
 
