@@ -3,7 +3,6 @@ const connectDB = require("./config/connectToDb");
 const cors = require("cors");
 const dotenv = require("dotenv").config();
 const colors = require("colors");
-const path = require("path")
 const { rateLimit } = require("express-rate-limit");
 const {
   errorHandeler,
@@ -19,18 +18,16 @@ const categoryRouter = require("./routes/category.routes");
 
 connectDB();
 
-const app = express();
-app.use(cors());
 // init App
+const app = express();
 
 // express middleware handling the form parsing
 //initializing multer
 
 // Middilewares
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-//---- step : 2.3 last ma file crate garne time
-// app.use(express.urlencoded({ extended: false }));
-app.use("public/images/", express.static(path.join(__dirname, "public/images/")));
+app.use(cors());
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
